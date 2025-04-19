@@ -1,0 +1,48 @@
+﻿<Page x:Class="Lavka.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lavka.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BtnAdd" 
+                Content="Создать заказ" 
+                HorizontalAlignment="Left" 
+                Margin="20,10,0,10" 
+                VerticalAlignment="Center" 
+                Height="30" 
+                Width="120" 
+                Click="BtnAdd_Click"
+                Grid.Row="0"/>
+
+        <ListView x:Name="LvPosts" 
+                  Grid.Row="1"
+                  Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="50" Header="ID" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Width="200" Header="Услуга">
+                        <GridViewColumn.DisplayMemberBinding>
+                            <MultiBinding StringFormat="{}{0} ({1})">
+                                <Binding Path="Service.Name"/>
+                                <Binding Path="Service.Price" StringFormat="c"/>
+                            </MultiBinding>
+                        </GridViewColumn.DisplayMemberBinding>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" Header="Мастер" DisplayMemberBinding="{Binding Master.User.Name}"/>
+                    <GridViewColumn Width="120" Header="Дата" DisplayMemberBinding="{Binding AppointmentDateTime, StringFormat={}{0:dd.MM.yyyy HH:mm}}"/>
+                    <GridViewColumn Width="100" Header="Статус" DisplayMemberBinding="{Binding Status}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

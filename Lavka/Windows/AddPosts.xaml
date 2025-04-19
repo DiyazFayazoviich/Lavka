@@ -1,0 +1,15 @@
+﻿<Window x:Class="Lavka.Windows.AddPosts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lavka.Windows"
+        mc:Ignorable="d"
+        Title="AddPosts" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="277,84,0,0" TextWrapping="Wrap" Text="Услуга" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PostsCb" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="242,118,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnAdd" Content="Создать заказ" HorizontalAlignment="Left" Margin="249,162,0,0" VerticalAlignment="Top" Width="106" Click="btnAdd_Click"/>
+
+    </Grid>
+</Window>
